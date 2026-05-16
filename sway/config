@@ -1,0 +1,114 @@
+# Variables
+set $mod Mod4
+set $term foot
+set $menu wmenu-run \
+-N 2e2d44 \
+-n f2e3f7 \
+-S f39b68 \
+-s 221e24 \
+-M a77cb6
+input "type:pointer" {
+    accel_profile flat
+    pointer_accel 0.3
+}
+
+
+# Autostart
+output DP-3 mode 1920x1080@180.001007Hz
+exec wbg ~/pictures/flower.jpg 
+
+
+# Pictures
+bindsym $mod+p exec grim - | wl-copy -t image/png
+bindsym $mod+Shift+p exec slurp | grim -g - - | wl-copy
+
+# Menu and Term
+bindsym $mod+Return exec $term
+bindsym $mod+d exec $menu
+
+# Workspaces
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+
+# Window things
+bindsym $mod+f fullscreen
+bindsym $mod+q kill
+gaps inner 10
+gaps outer 10
+
+# Window movement
+bindsym $mod+j focus down
+bindsym $mod+l focus right
+bindsym $mod+h focus left
+bindsym $mod+k focus up
+
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+
+# Window resize
+bindsym $mod+Ctrl+k resize grow height 20 px
+bindsym $mod+Ctrl+h resize grow width 20 px
+bindsym $mod+Ctrl+l resize shrink width 20 px
+bindsym $mod+Ctrl+j resize shrink height 20 px
+
+# Window split
+bindsym $mod+o splitv
+bindsym $mod+i splith
+
+# Window floating
+bindsym $mod+space floating toggle
+floating_modifier $mod
+
+# Volume changing
+#bindsym $mod+s exec wpctl set-volume @DEFAULT_AUDIO_SINK@  5%+
+#bindsym $mod+a exec wpctl set-volume @DEFAULT_AUDIO_SINK@  5%-
+
+# Borders
+default_border none
+default_floating_border none
+
+
+# Exit
+bindsym $mod+Shift+Escape exec swaymsg exit
+bindsym $mod+Shift+r reload
+
+# swayfx
+
+corner_radius 18
+
+# Blur
+blur enable
+blur_xray disable
+blur_passes 5
+blur_radius 10
+
+blur_noise 0.01
+blur_brightness 0.90
+blur_contrast 1.0
+blur_saturation 0.90
+
+# Shadows
+shadows disable
+
+
+# Border/titlebar
+titlebar_separator disable
